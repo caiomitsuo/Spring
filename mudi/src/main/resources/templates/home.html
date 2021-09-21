@@ -2,18 +2,18 @@
 	<head>
 	<meta charset="UTF-8"/>
 	<body>
-		<div>
-			<div>Nome do Produto</div>
+		<div th:each="pedido: ${pedidos}">
+			<div th:text="${pedido.nomeProduto}">Nome do Produto</div>
 			<div>Valor <span>209.99</span></div>
-			<div>Data de Entrega <span>10;02;2020</span></div>
+			<div>Data de Entrega <span th:text="${pedido.dataDaEntregar}">10;02;2020</span></div>
 			<div>Produto</div>
-			<div>url do produto</div>
+			<div><input th:value="${pedido.urlProduto}" value="url do produto"/></div>
 			<div>Descrição</div>
 			<div>
-				<textarea>descrição do produto</textarea>
+				<textarea th:text="${pedido.descricao}">descrição do produto</textarea>
 			</div>
 			<div>
-				<img src=""/>
+				<img th:src="${pedido.urlImagem}" src=""/>
 			</div>
 		</div>
 	</body>
